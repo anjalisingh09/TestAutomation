@@ -13,17 +13,16 @@ import org.testng.annotations.BeforeTest;
 
 import java.util.List;
 
-public class BaseTest {
-    private WebDriver driver;
+public class BaseTest extends Driver {
+//    private WebDriver driver;
     protected HomePage homePage;
 
     @BeforeTest
     public void setUp(){
-        System.setProperty("webdriver.chrome.driver","/usr/local/bin/chromedriver");
-        driver = new ChromeDriver();
-        driver.get("https://the-internet.herokuapp.com/");
 
-        homePage = new HomePage(driver);
+        Driver.getDriver().get("https://the-internet.herokuapp.com/");
+
+        homePage = new HomePage();
 
 //        driver.manage().window().maximize();
 //        driver.manage().window().fullscreen();
@@ -47,7 +46,7 @@ public class BaseTest {
     }
     @AfterTest
     public void tearDownn(){
-        driver.quit();
+        Driver.getDriver().quit();
     }
 
 }

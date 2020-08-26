@@ -14,7 +14,7 @@ public class LoginTests extends BaseTest {
     public void testSuceesfullLogin(){
         LoginPage loginPage = homePage.clickFormAuthentication();
         loginPage.setUsername("tomsmith");
-        loginPage.setUsername("SuperSecretPassword!");
+        loginPage.setPassword("SuperSecretPassword!");
         SecureAreaPage secureAreaPage = loginPage.clickLoginButton();
         secureAreaPage.getAlertText();
         assertTrue(secureAreaPage.getAlertText()
